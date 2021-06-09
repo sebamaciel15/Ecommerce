@@ -22,10 +22,10 @@
                     slidesToScroll: 5,
                     slidesToShow: 5.5,
                     draggable: true,
-                    dots: '.dots',
+                    dots: '.glider-' + id + '~ .dots',
                     arrows: {
-                        prev: '.glider-prev',
-                        next: '.glider-next'
+                        prev: '.glider-' + id + '~ .glider-prev',
+                        next: '.glider-' + id + '~ .glider-next'
                     }
                 });
 
