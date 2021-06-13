@@ -25,7 +25,11 @@
         </div>
 
         <div class="flex-1">
-            <x-button color="orange" class="w-full">
+            <x-button color="orange" 
+            class="w-full"
+            wire:click="addItem"
+            wire:loading.attr="disabled"
+            wire:target="addItem">
                 Agregar a carrito de compras
             </x-button>
         </div>
