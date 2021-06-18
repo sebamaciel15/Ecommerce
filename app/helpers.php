@@ -28,7 +28,7 @@ function qty_added($produc_id, $color_id = null, $size_id = null)
 
     $item = $cart->where('id', $produc_id)
         ->where('options.color_id', $color_id)
-        ->where('options.si_id', $size_id);
+        ->where('options.si_id', $size_id)->first();
 
     if ($item) {
         return $item->qty;
