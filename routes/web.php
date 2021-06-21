@@ -28,4 +28,6 @@ Route::get('orders/{order}', [OrderController::class, 'show'])->name('orders.sho
 
 Route::get('orders/{order}/payment', [OrderController::class, 'payment'])->name('orders.payment');
 
+Route::get('orders/{order}/pay', [OrderController::class, 'pay'])->name('orders.pay');
+
 Route::post('webhooks', webhooksController::class);
