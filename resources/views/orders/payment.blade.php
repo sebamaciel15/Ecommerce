@@ -17,10 +17,17 @@
             $item->quantity = $product->qty;
             $item->unit_price = $product->price;
         
-            $products[] = $item;
+            $products = $item;
         }
         
-        $preference->items = $products;
+        $preference->back_urls = [
+            'success' => 'https://www.tu-sitio/success',
+            'failure' => 'http://www.tu-sitio/failure',
+            'pending' => 'http://www.tu-sitio/pending',
+        ];
+        $preference->auto_return = 'approved';
+        
+        $preference->items = [$products];
         $preference->save();
     @endphp
 

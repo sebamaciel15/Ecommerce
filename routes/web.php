@@ -8,6 +8,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Livewire\ShoppingCart;
 use App\Http\Livewire\CreateOrder;
+use App\Http\Controllers\WebhooksController;
 
 
 
@@ -23,4 +24,8 @@ Route::get('shopping-cart', ShoppingCart::class)->name('shopping-cart');
 
 Route::get('orders/create', CreateOrder::class)->middleware('auth')->name('orders.create');
 
+Route::get('orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+
 Route::get('orders/{order}/payment', [OrderController::class, 'payment'])->name('orders.payment');
+
+Route::post('webhooks', webhooksController::class);
