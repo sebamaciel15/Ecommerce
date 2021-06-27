@@ -1,4 +1,4 @@
-<header class="bg-trueGray-700 sticky top-0 z-50" x-data="dropdown()">
+<header class="bg-trueGray-700 sticky top-0" style="z-index: 900" x-data="dropdown()">
     <div class="container flex items-center h-16 justify-between md:justify-start">
         <a :class="{'bg-opacity-100 text-orange-500' : open}" x-on:click="show()"
             class="flex flex-col items-center justify-center order-last md:order-first px-6 md:px-4 bg-white bg-opacity-25 text-white cursor-pointer font-semibold h-full">
@@ -38,6 +38,10 @@
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
+                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                            Mis ordenes
+                        </x-jet-dropdown-link>
+
                         <div class="border-t border-gray-100"></div>
 
                         <!-- Authentication -->
@@ -46,7 +50,7 @@
 
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        this.closest('form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-jet-dropdown-link>
                         </form>
@@ -154,8 +158,9 @@
                     Perfil
                 </a>
 
-                <a href="" onclick="event.preventDefault();
-                                                                        document.getElementById('logout-form').submit()"
+                <a href=""
+                    onclick="event.preventDefault();
+                                                                                    document.getElementById('logout-form').submit()"
                     class="py-2 px-4 text-sm flex items-center text-trueGray-500 hover:bg-orange-500 hover:text-white">
 
                     <span class="flex justify-center w-9">
