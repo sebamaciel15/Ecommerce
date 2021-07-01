@@ -22,9 +22,9 @@ class OrderPolicy
     public function payment(User $user, Order $order)
     {
         if ($order->status == 2) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
 }
