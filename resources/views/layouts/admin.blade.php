@@ -22,8 +22,11 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
-
+    {{-- ckeditor --}}
     <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
+
+    {{-- sweetalert2 --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 </head>

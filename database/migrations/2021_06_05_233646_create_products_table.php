@@ -26,7 +26,7 @@ class CreateProductsTable extends Migration
 
             $table->foreign('subcategory_id')
                 ->references('id')
-                ->on('subcategories');
+                ->on('subcategories')->onDelete('cascade');
 
 
             $table->unsignedBigInteger('brand_id');
