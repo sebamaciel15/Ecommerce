@@ -23,9 +23,17 @@ class SizeProduct extends Component
     {
         $this->validate();
 
-        $this->product->sizes()->create([
-            'name' => $this->name
-        ]);
+        $size = Size::where('product_id', $this->product->id)
+            ->where('name', $this->name)
+            ->first();
+
+        if ($size) {
+            $this->emit('errorSize', 'Esta talla ya existe');
+        } else {
+            $this->product->sizes()->create([
+                'name' => $this->name
+            ]);
+        }
 
         $this->reset('name');
 

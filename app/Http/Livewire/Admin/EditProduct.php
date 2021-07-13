@@ -7,8 +7,10 @@ use Livewire\Component;
 use App\Models\Product;
 use App\Models\Subcategory;
 use App\Models\Brand;
+use App\Models\Image;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class EditProduct extends Component
 {
@@ -26,6 +28,7 @@ class EditProduct extends Component
         'product.price' => 'required',
         'product.quantity' => 'numeric',
     ];
+
 
     protected $listeners = ['refreshProduct', 'delete'];
 
@@ -94,6 +97,30 @@ class EditProduct extends Component
         $this->product->save();
 
         $this->emit('saved');
+    }
+
+    public function deleteImage(Image $image)
+    {
+        Storage::delete([$image->url]);
+
+        $image->delete();
+
+        $this->product = $this->product->fresh();
+    }
+
+    public function delete()
+    {
+
+        $images = $this->product->images;
+
+        foreach ($images as $image) {
+            Storage::delete($image->url);
+            $image->delete();
+        }
+
+        $this->product->delete();
+
+        return redirect()->route('admin.index');
     }
 
 

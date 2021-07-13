@@ -9,7 +9,4 @@
     </div>
 
 
-
-
-
 </x-app-layout>
