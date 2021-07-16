@@ -33,7 +33,8 @@ class CreateProductsTable extends Migration
 
             $table->foreign('brand_id')
                 ->references('id')
-                ->on('brands');
+                ->on('brands')
+                ->onDelete('cascade');
 
             $table->integer('quantity')->nullable();
 
